@@ -3,8 +3,9 @@ from dotenv import load_dotenv
 import psycopg2
 import logging
 import requests
+import json
 
-# Load environment variables (database credentials from .env)
+# Load environment variables
 load_dotenv()
 
 # Configure logging
@@ -37,8 +38,8 @@ def get_db_connection():
         logging.error(f"PostgreSQL connection error: {e}")
         return None
 
-# Fetch gym data from Google Maps Places API
-def search_gyms(location, search_terms, radius=15000):  # 15km radius
+# Fetch gym data from Google Maps Places API (Text Search)
+def search_gyms(location, search_terms, radius=20000):  # Increased radius to 20km
     all_results = []
 
     for term in search_terms:
@@ -47,24 +48,24 @@ def search_gyms(location, search_terms, radius=15000):  # 15km radius
             "query": term,
             "location": location,
             "radius": radius,
-            "key": os.environ.get("GOOGLE_MAPS_API_KEY")  # API key from system env
+            "key": os.environ.get("GOOGLE_MAPS_API_KEY")
         }
-        url = f"{base_url}?{'&'.join([f'{k}={v}' for k, v in params.items()])}"  # Construct the URL
-        print(f"API Request URL: {url}")  # Print the URL for debugging
+        url = f"{base_url}?{'&'.join([f'{k}={v}' for k, v in params.items()])}"
+        print(f"API Request URL: {url}")
 
         try:
             response = requests.get(base_url, params=params)
-            response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
+            response.raise_for_status()
             data = response.json()
 
             status = data.get("status")
-            print(f"API Response Status: {status}") # Print status for debugging
+            print(f"API Response Status: {status}")
 
             if status == "ZERO_RESULTS":
                 logging.warning(f"No results found for '{term}' in the specified area.")
             elif status == "OVER_QUERY_LIMIT":
                 logging.error("Google Maps API query limit exceeded.")
-                return []  # Or implement a retry mechanism
+                return []
             elif status == "REQUEST_DENIED":
                 logging.error("Google Maps API request denied. Check your API key and billing.")
                 return []
@@ -76,13 +77,12 @@ def search_gyms(location, search_terms, radius=15000):  # 15km radius
             all_results.extend(results)
 
         except requests.exceptions.RequestException as e:
-            print(f"Request Exception: {e}")  # Print exception for debugging
+            print(f"Request Exception: {e}")
             logging.error(f"Error fetching gym data for '{term}': {e}")
         except (KeyError, TypeError) as e:
-            print(f"JSON parsing error: {e}. Data: {data if 'data' in locals() else 'N/A'}") # Print exception and data
+            print(f"JSON parsing error: {e}. Data: {data if 'data' in locals() else 'N/A'}")
             logging.error(f"Error parsing Google Maps API response for '{term}': {e}. Response data: {data if 'data' in locals() else 'N/A'}")
 
-    # Remove duplicate gyms based on place_id
     unique_results = []
     seen_place_ids = set()
     for gym in all_results:
@@ -93,6 +93,48 @@ def search_gyms(location, search_terms, radius=15000):  # 15km radius
 
     return unique_results
 
+# Fetch gym details from Google Maps Places API (Details API)
+def get_gym_details(place_id):
+    base_url = "https://maps.googleapis.com/maps/api/place/details/json"
+    params = {
+        "place_id": place_id,
+        "fields": "formatted_phone_number,website,formatted_address,geometry,name",
+        "key": os.environ.get("GOOGLE_MAPS_API_KEY")
+    }
+
+    try:
+        response = requests.get(base_url, params=params)
+        response.raise_for_status()
+        details_data = response.json()
+        print(json.dumps(details_data, indent=4))
+        status = details_data.get("status")
+
+        if status == "OK":
+            result = details_data.get("result", {})
+            phone = result.get('formatted_phone_number')
+            website = result.get('website')
+            address = result.get('formatted_address')
+            geometry = result.get('geometry')
+            name = result.get('name')
+
+            return {
+                "phone": phone,
+                "website": website,
+                "address": address,
+                "geometry": geometry,
+                "name": name
+            }
+        else:
+            logging.error(f"Places Details API error: {status}")
+            return {}
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Error fetching gym details: {e}")
+        return {}
+    except (KeyError, TypeError) as e:
+        logging.error(f"Error parsing Places Details API response: {e}. Data: {details_data if 'details_data' in locals() else 'N/A'}")
+        return {}
+
+
 # Insert gym data into the database
 def insert_gym_data(gym_data):
     conn = get_db_connection()
@@ -102,14 +144,13 @@ def insert_gym_data(gym_data):
     cursor = conn.cursor()
 
     try:
-        # Robust Data validation
-        required_fields = ['place_id', 'name', 'geometry', 'formatted_address']
+        required_fields = ['place_id', 'name', 'geometry', 'address']
         if not all(key in gym_data and gym_data[key] for key in required_fields) or not all(key in gym_data['geometry']['location'] and gym_data['geometry']['location'][key] for key in ['lat', 'lng']):
             logging.error(f"Invalid gym data received: {gym_data}")
             conn.rollback()
             return
 
-        address_parts = gym_data.get('formatted_address', '').split(',')
+        address_parts = gym_data.get('address', '').split(',')
         street_address = address_parts[0].strip() if address_parts else None
         city = address_parts[1].strip() if len(address_parts) > 1 else None
         state = address_parts[2].strip().split()[-2] if len(address_parts) > 2 else None
@@ -119,7 +160,7 @@ def insert_gym_data(gym_data):
             INSERT INTO bushido_life.MartialArtsGyms (PlaceID, BusinessName, Phone, StreetAddress, City, USState, ZipCode, Website, BusinessCategory, Latitude, Longitude, SourceWebsite)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (
-            gym_data['place_id'], gym_data['name'], gym_data.get('formatted_phone_number'),
+            gym_data['place_id'], gym_data['name'], gym_data.get('phone'),
             street_address, city, state, zip_code, gym_data.get('website'),
             "Martial Arts School", gym_data['geometry']['location']['lat'],
             gym_data['geometry']['location']['lng'], "Google Maps"
@@ -138,19 +179,20 @@ def insert_gym_data(gym_data):
 
 
 def main():
-    location = "25.7743,-80.1937"  # Miami coordinates
+    miami_coordinates = "25.7743,-80.1937"  # Miami coordinates
     search_terms = ["Brazilian jiu jitsu", "grappling", "jiu jitsu", "martial arts", "MMA", "judo", "no-gi jiu jitsu"]
-    print(f"Location: {location}")  # Print location for debugging
-    print(f"Search Terms: {search_terms}")  # Print search terms for debugging
-    gyms = search_gyms(location, search_terms)
+    print(f"Location: {miami_coordinates}")
+    print(f"Search Terms: {search_terms}")
+    gyms = search_gyms(miami_coordinates, search_terms)
 
     if gyms:
-        print(f"Found {len(gyms)} gyms.")  # Print number of gyms found
+        print(f"Found {len(gyms)} gyms.")
         for gym in gyms:
-            insert_gym_data(gym)
-        print(f"Successfully inserted {len(gyms)} gyms.")
-    else:
-        print("No gyms found or inserted.")
-
-if __name__ == "__main__":
-    main()
+            place_id = gym.get('place_id')
+            if place_id:
+                gym_details = get_gym_details(place_id)
+                if gym_details:
+                    gym.update(gym_details)
+                    insert_gym_data(gym)
+                else:
+                    logging
