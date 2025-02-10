@@ -14,11 +14,31 @@ logging.basicConfig(filename='scraper_errors.log', level=logging.ERROR)
 # Database connection
 def get_db_connection():
     try:
-        # ... (no changes)
+        dbname = os.environ.get("DB_NAME")
+        user = os.environ.get("DB_USER")
+        password = os.environ.get("DB_PASSWORD")
+        host = os.environ.get("DB_HOST")
+        port = os.environ.get("DB_PORT")
+
+        if not all([dbname, user, password, host, port]):
+            raise ValueError("Missing database credentials in environment variables.")
+
+        conn = psycopg2.connect(
+            dbname=dbname,
+            user=user,
+            password=password,
+            host=host,
+            port=port
+        )
+        return conn
     except ValueError as e:
-        # ...
+        logging.error(f"Database connection error: {e}")
+        print(f"Database connection error: {e}") # Print to console
+        return None
     except psycopg2.Error as e:
-        # ...
+        logging.error(f"PostgreSQL connection error: {e}")
+        print(f"PostgreSQL connection error: {e}") # Print to console
+        return None
 
 # Fetch gym data from Google Maps Places API (Text Search)
 def search_gyms(location, search_terms, radius=20000):  # 20km radius
@@ -39,6 +59,7 @@ def search_gyms(location, search_terms, radius=20000):  # 20km radius
             response = requests.get(base_url, params=params)
             response.raise_for_status()
             data = response.json()
+            print(json.dumps(data, indent=4)) # Print the raw JSON response
 
             status = data.get("status")
             print(f"API Response Status: {status}")
@@ -160,23 +181,3 @@ def insert_gym_data(gym_data):
     except Exception as e:
         logging.error(f"An unexpected error occurred during insertion: {e}")
         conn.rollback()
-    finally:
-        cursor.close()
-        conn.close()
-
-
-def main():
-    miami_coordinates = "25.7743,-80.1937"  # Miami coordinates
-    search_terms = ["Brazilian jiu jitsu", "grappling", "jiu jitsu", "martial arts", "MMA", "judo", "no-gi jiu jitsu"]
-    print(f"Location: {miami_coordinates}")
-    print(f"Search Terms: {search_terms}")
-    gyms = search_gyms(miami_coordinates, search_terms)
-
-    if gyms:
-        print(f"Found {len(gyms)} gyms.")
-        for gym in gyms:
-            place_id = gym.get('place_id')
-            if place_id:
-                gym_details = get_gym_details(place_id)
-                if gym_details:  # Check if details were retrieved successfully
-                    gym.update(gym_details)  # Update
