@@ -40,7 +40,7 @@ def get_db_connection():
 
 # Fetch gym data from Google Maps Places API (Text Search)
 def search_gyms(location, search_terms, radius=20000):  # 20km radius
-    all_results = []
+    all_results =
 
     for term in search_terms:
         base_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
@@ -65,15 +65,15 @@ def search_gyms(location, search_terms, radius=20000):  # 20km radius
                 logging.warning(f"No results found for '{term}' in the specified area.")
             elif status == "OVER_QUERY_LIMIT":
                 logging.error("Google Maps API query limit exceeded.")
-                return []
+                return
             elif status == "REQUEST_DENIED":
                 logging.error("Google Maps API request denied. Check your API key and billing.")
-                return []
-            elif status != "OK":
+                return
+            elif status!= "OK":
                 logging.error(f"Google Maps API returned an unexpected status: {status}")
-                return []
+                return
 
-            results = data.get("results", [])
+            results = data.get("results",)
             all_results.extend(results)
 
         except requests.exceptions.RequestException as e:
@@ -83,7 +83,7 @@ def search_gyms(location, search_terms, radius=20000):  # 20km radius
             print(f"JSON parsing error: {e}. Data: {data if 'data' in locals() else 'N/A'}")
             logging.error(f"Error parsing Google Maps API response for '{term}': {e}. Response data: {data if 'data' in locals() else 'N/A'}")
 
-    unique_results = []
+    unique_results =
     seen_place_ids = set()
     for gym in all_results:
         place_id = gym.get('place_id')
@@ -156,10 +156,10 @@ def insert_gym_data(gym_data):
             return
 
         address_parts = gym_data.get('address', '').split(',')
-        street_address = address_parts[0].strip() if address_parts else None
-        city = address_parts[1].strip() if len(address_parts) > 1 else None
-        state = address_parts[2].strip().split()[-2] if len(address_parts) > 2 else None
-        zip_code = address_parts[2].strip().split()[-1] if len(address_parts) > 2 else None
+        street_address = address_parts.strip() if address_parts else None
+        city = address_parts.strip() if len(address_parts) > 1 else None
+        state = address_parts.strip().split()[-2] if len(address_parts) > 2 else None
+        zip_code = address_parts.strip().split()[-1] if len(address_parts) > 2 else None
 
         cursor.execute("""
             INSERT INTO bushido_life.MartialArtsGyms (PlaceID, BusinessName, Phone, StreetAddress, City, USState, ZipCode, Website, BusinessCategory, Latitude, Longitude, SourceWebsite)
@@ -173,19 +173,4 @@ def insert_gym_data(gym_data):
 
         conn.commit()
     except psycopg2.Error as e:
-        logging.error(f"Error inserting gym data: {e}")
-        conn.rollback()
-    except Exception as e:
-        logging.error(f"An unexpected error occurred during insertion: {e}")
-        conn.rollback()
-    finally:
-        cursor.close()
-        conn.close()
-
-
-def main():
-    miami_coordinates = "25.7743,-80.1937"  # Miami coordinates
-    search_terms = ["Brazilian jiu jitsu", "grappling", "jiu jitsu", "martial arts", "MMA", "judo", "no-gi jiu jitsu"]
-    print(f"Location: {miami_coordinates}")
-    print(f"Search Terms: {search_terms}")
-    gyms = search_gyms(miami_coordinates, search_terms)
+        logging.error(
