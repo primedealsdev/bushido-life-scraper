@@ -863,3 +863,220 @@ DETAIL:  Key (placeid)=(ChIJVW2f5KrH2YgR5fn-AtlKd88) already exists.
 ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
 DETAIL:  Key (placeid)=(ChIJCZLpQQWt2YgRHh9xv5Q92iY) already exists.
 
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJrf_rbzG72YgRaRvg3CIEXaE) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJq2SxoX652YgRB_a2To-nvaI) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJL1T4ZwjH2YgRdKMwM2lnCpw) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ373ElXLK2YgRjSGPfPrOH_k) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ-0Vtdc232YgR_JigpYDlgFo) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJp5LcSlK22YgR7azarMUFKRg) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJzxWuxOuz2YgRStejq3X-e_U) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ8zaFi0yx2YgRVuVSCRfvJdQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJsSg2iWGx2YgRQ1umrORpxC8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ6YSr20m72YgRpXzoiwfU9bI) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJVSoWOtWz2YgR6NkVxBrVZl8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJzY_Xeb-72YgRZnXmq49S5N8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJqTBtshy32YgRocGN2StRWkk) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJO5ZObIu12YgRSQXIPZ9m5F8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJVW2f5KrH2YgR5fn-AtlKd88) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJIy61--y42YgROcVzmAnvtGQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJIf0C2dTH2YgR8QgLZ1pBpUQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ02mq1Cul2YgRBg9zx9wG8Ac) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJh4VjGxK72YgRRE6f5_jXyRs) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJZ6nohHC52YgRKKVd3phwb3k) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ7XiEIZi52YgR9jJ2trGrjJI) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJlxgPvByx2YgRUSCT-5UNvDA) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJy1NH-ZO32YgR-0E_W4UNN18) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ8V8i8jK_2YgRMSIhgTw30qU) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJVS62xQS12YgRbFebbEkoQLQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJfVOvlaW22YgRybP0GxdCJjw) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJi7LwYZ632YgRUqaw27aWtpc) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ-2a_aW3K2YgR5Qg9gPtdw3Y) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ0-7V3uGz2YgRBJRdUdzWCSE) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJn3dfIbXA2YgRCPSwdN02GtM) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJr0T4gya72YgRDs9rZDgDa8o) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ30FalfHL2YgRmLnwgLAaw40) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJnag8O9Wz2YgR15ENFoTwdF8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJMc8Zdsiz2YgRk7mpUYGwItU) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJuSSn-Pq72YgRKEy-qNylNwQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJmyla5Iy32YgREjpUznsaVKQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJlx1dKO-32YgR3_vBei0O7nQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ-eK7YEKx2YgR70OjsgpljeI) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJdaTndzK42YgRDU4P_03u1vo) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJKf6RRVXH2YgR5iBg9B6Z66A) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJLVRLxe232YgRBKETC288OeU) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJJfTDjHy42YgR20bAmQHYPtY) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJn86z_gG32YgRmDVixwEJoxs) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJyyap4Tm72YgR-HJDS9tRqf8) already exists.
+
+ERROR:root:An unexpected error occurred during insertion: list index out of range
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ5dXSZ7y62YgRG9OS0d8bnV4) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJY2sSWF7H2YgRe40Pyu22I7I) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJl3ZKM9ax2YgR93oBFsqHBSg) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJI_B-yRuy2YgRcCkTf-bY-eE) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJH2h6bM2x2YgRBAmwXoM8d14) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ63DEZbS32YgRJc1sYke2LqY) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJCxEMnNRhFYERpF5EbHkwuS4) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJCYx6N3652YgRhaQwAigykIE) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJq_K994q02YgRBYJo3PnTohM) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ0RxWRze72YgRnQPiLvmulL8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJP3412Xq62YgRSdm01-KvflI) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ7XMrfa232YgRdosM85fSVHA) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ918i8jK_2YgRWWD57xOrJjw) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJJZ7mr5bB2YgRDBo2xcpeHWA) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJZwM13m252YgRNTHTdCguxIA) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ0fdeqbK52YgRJKgnhtqzPiI) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJcW5Kxzu72YgRsjX_JslpLQE) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJpS1sYXy42YgR7R1jcRk1bcM) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJg3qD_jew2YgRX4svZ3zQF_A) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJPa2Vdny52YgRtSbIlSJnPqQ) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJt_14BQC52YgRKA2biWYtlW8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJLyK6UaW42YgRxp-oRTl6pmk) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJZ6w7iGS42YgR7rSYZ5gDbVo) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJl8okpJTG2YgRX59PikUHvFM) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJ8e8w85S22YgRqafpzVHRYh8) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJQYZEMGGt2YgRCBdC5a2h8eM) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJeVhL94q02YgR5usgfk8iQd0) already exists.
+
+ERROR:root:Error inserting gym data: duplicate key value violates unique constraint "martialartsgyms_pkey"
+DETAIL:  Key (placeid)=(ChIJCZLpQQWt2YgRHh9xv5Q92iY) already exists.
+

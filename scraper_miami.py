@@ -39,7 +39,7 @@ def get_db_connection():
         return None
 
 # Fetch gym data from Google Maps Places API (Text Search)
-def search_gyms(location, search_terms, radius=20000):  # Increased radius to 20km
+def search_gyms(location, search_terms, radius=20000):  # 20km radius
     all_results = []
 
     for term in search_terms:
@@ -95,6 +95,7 @@ def search_gyms(location, search_terms, radius=20000):  # Increased radius to 20
 
 # Fetch gym details from Google Maps Places API (Details API)
 def get_gym_details(place_id):
+    print(f"Getting details for place_id: {place_id}")
     base_url = "https://maps.googleapis.com/maps/api/place/details/json"
     params = {
         "place_id": place_id,
@@ -117,6 +118,8 @@ def get_gym_details(place_id):
             geometry = result.get('geometry')
             name = result.get('name')
 
+            print(f"Details retrieved: Phone: {phone}, Website: {website}, Address: {address}")
+
             return {
                 "phone": phone,
                 "website": website,
@@ -126,16 +129,18 @@ def get_gym_details(place_id):
             }
         else:
             logging.error(f"Places Details API error: {status}")
+            print(f"Places Details API error: {status}")
             return {}
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching gym details: {e}")
+        print(f"Error fetching gym details: {e}")
         return {}
     except (KeyError, TypeError) as e:
         logging.error(f"Error parsing Places Details API response: {e}. Data: {details_data if 'details_data' in locals() else 'N/A'}")
+        print(f"Error parsing Places Details API response: {e}. Data: {details_data if 'details_data' in locals() else 'N/A'}")
         return {}
 
 
-# Insert gym data into the database
 def insert_gym_data(gym_data):
     conn = get_db_connection()
     if conn is None:
@@ -184,15 +189,3 @@ def main():
     print(f"Location: {miami_coordinates}")
     print(f"Search Terms: {search_terms}")
     gyms = search_gyms(miami_coordinates, search_terms)
-
-    if gyms:
-        print(f"Found {len(gyms)} gyms.")
-        for gym in gyms:
-            place_id = gym.get('place_id')
-            if place_id:
-                gym_details = get_gym_details(place_id)
-                if gym_details:
-                    gym.update(gym_details)
-                    insert_gym_data(gym)
-                else:
-                    logging
