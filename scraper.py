@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-load_dotenv()  # Load environment variables from .env file
+load_dotenv()  # Load env vars from .env file
 import psycopg2
 import logging
 import requests
